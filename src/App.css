@@ -1,0 +1,60 @@
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  word-break: break-all;
+}
+
+input[type="text"] {
+  border: 1px gray solid;
+  word-break: break-all;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+input[type="number"] {
+  border: 1px gray solid;
+  word-break: break-all;
+  border-radius: 6px;
+  padding: 3px 4px;
+
+}
+
+/*
+
+.info{
+  word-break: break-all; 
+  height: 100px;
+
+}
+textarea{
+  border: 1px solid gray;
+   border-radius: 7px;
+}
+p{
+  word-break: break-all; 
+
+}
+.upButton button{
+  background-color: rgb(96, 207, 251);
+  color: whitesmoke;
+  padding:4px;
+  font-size: x-large;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 20px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+} */
