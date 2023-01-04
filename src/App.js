@@ -1,19 +1,18 @@
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "./Layout/Layout";
+import ContactApp from "./container/ContactApp";
 import { Route, Routes } from "react-router-dom";
-import routs from "./routes";
-import EditContact from "./components/EditContact";
+import FormComponent from "./components/FormComponent";
+import Layout from "./Layout/Layout";
 
 function App() {
   return (
     <Layout>
       <Routes>
-        {routs.map((rout,index) => (
-          <Route key={index} element={rout.element} path={rout.path} />
-        ))}
-      </Routes>\
-      
+        <Route path="/contact/*" element={<ContactApp />}>
+          <Route path="new-contact" element={<FormComponent />} />
+        </Route>
+      </Routes>
     </Layout>
   );
 }

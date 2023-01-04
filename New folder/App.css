@@ -5,26 +5,25 @@
   height: 100%;
   word-break: break-all;
 }
+.erro {
+  color: red;
+}
 input[type="text"],
-input[type="password"],
-select {
-  outline: none;
-
-  padding: 5px 0px;
+input[type="password"],select {
+  border: 1px gray solid;
+  word-break: break-all;
+  border-radius: 6px;
+  padding: 3px 8px;
 }
 
 input[type="number"] {
-  outline: none;
-}
-:disabled{
-  color: rgb(171, 170, 170);
+  border: 1px gray solid;
+  word-break: break-all;
+  border-radius: 6px;
+  padding: 3px 4px;
 }
 
 /*
-input.error {
-  border-color: red;
-}
-
 
 .info{
   word-break: break-all; 
@@ -48,16 +47,16 @@ p{
   cursor: pointer;
 
 }
-*/
-textarea::-webkit-scrollbar {
+
+.custom-scrollbar::-webkit-scrollbar {
   width: 20px;
 }
-textarea::-webkit-scrollbar-track {
+.custom-scrollbar::-webkit-scrollbar-track {
   background-color: transparent;
 }
-textarea::-webkit-scrollbar-thumb {
+.custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #d6dee1;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
-}
+} */
