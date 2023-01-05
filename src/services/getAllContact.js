@@ -1,5 +1,5 @@
 import http from "./httpService";
 
 export function getAllContact() {
-  return http.get("/users/1");
+  return http.get("/contacts");
 }

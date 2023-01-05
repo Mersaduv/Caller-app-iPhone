@@ -78,23 +78,23 @@ const FormComponent = () => {
         </div>
         <div className="bg-gray-100 w-full mt-4    h-96 ">
           {/* -------------- get  Number mobile -------------*/}
-          <div className="bg-white border-t w-full  mt-8  border-gray-100">
+          <div className="bg-white border-t w-full   mt-8  border-gray-100">
             {/* input creating Phone number */}
-            <div className="flex items-center w-full border-b">
+            <div className="flex items-center w-full   border-b">
               {showNum && (
-                <div className="py-1.5 pl-3 flex items-center gap-x-3.5  pr-1.5 border-r  ">
+                <div className="py-1.5 pl-3  flex items-center gap-x-3.5  pr-1.5 border-r  ">
                   <span
                     onClick={() => setshowNum((rem) => !rem)}
-                    className="bg-red-500  cursor-pointer flex items-center justify-center h-[18px] w-[18px] text-white rounded-full  "
+                    className="bg-red-500   cursor-pointer flex items-center justify-center h-[18px] w-[18px] text-white rounded-full  "
                   >
                     <BiMinus />
                   </span>
-                  <span className="text-blue-600 ">mobile</span>
+                  <span className="text-blue-600  ">mobile</span>
                 </div>
               )}
               {showNum && (
                 <Input
-                  className=" border-white  "
+                  className=" border-white   "
                   name="phoneNumber"
                   type="number"
                   textPlaceHolder="Phone"
@@ -103,14 +103,14 @@ const FormComponent = () => {
               )}
             </div>
             {/* onclick showNum create contact  */}
-            <div className="py-1.5    pl-3 flex items-center gap-x-3.5  border-b">
+            <div className="py-1.5     pl-3 flex items-center gap-x-3.5  border-b">
               <span
                 onClick={() => setshowNum((hidden) => !hidden)}
-                className="bg-green-500    flex items-center justify-center h-[18px] w-[18px] text-white rounded-full  cursor-pointer  "
+                className="bg-green-500       flex items-center justify-center h-[18px] w-[18px] text-white rounded-full  cursor-pointer  "
               >
                 <BiPlus />
               </span>
-              <span>add phone</span>
+              <span className="">add phone</span>
             </div>
           </div>
 
@@ -161,6 +161,13 @@ const FormComponent = () => {
               id="notes"
               className="w-full  h-24  outline-none"
             />
+          </div>
+
+          <div className="bg-white border-t w-full  mt-12  py-1.5  border-gray-100">
+            <span className=" ml-4 text-blue-600 cursor-pointer">
+              {" "}
+              add field
+            </span>
           </div>
         </div>
       </form>
