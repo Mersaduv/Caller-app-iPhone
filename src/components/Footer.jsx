@@ -15,7 +15,7 @@ const Footer = () => {
     { to: "/voicemail", name: "Voicemail", icon: <BiVoicemail /> },
   ];
   return (
-    <div className="bg-gray-100 text-sm flex border-t-2 shadow-xl justify-between  px-2 pt-1 pb-0.5 bottom-0 fixed   mx-auto max-w-lg w-full ">
+    <div className="bg-gray-100 text-sm flex border-t-2 shadow-xl justify-between  px-2 pt-1 pb-0.5 bottom-0 fixed   mx-auto max-w-md w-full ">
       {pageItems.map((page) => (
         <NavLink
           key={page.name}

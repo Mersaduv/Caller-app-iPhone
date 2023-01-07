@@ -41,8 +41,13 @@ const ContactApp = () => {
       setContact(filterState);
     }
   };
+
+  const clearHandler = () => {
+    setSearchValue("");
+    setCancel((prevCancel) => !prevCancel);
+  };
   return (
-    <div className="px-3 mt-2">
+    <div className="px-3 mt-2 ">
       {/* selector new-conatct / header  */}
       <div className="flex flex-col ">
         <div className=" text-blue-500 hover:text-blue-400  flex justify-between">
@@ -76,7 +81,10 @@ const ContactApp = () => {
         </div>
 
         {cancel && (
-          <button className="bg-white pl-2 text-blue-600 active:text-gray-300">
+          <button
+            onClick={clearHandler}
+            className="bg-white pl-2 text-blue-600 active:text-gray-300"
+          >
             Cancel
           </button>
         )}

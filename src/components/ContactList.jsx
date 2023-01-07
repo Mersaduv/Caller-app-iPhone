@@ -1,37 +1,38 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { getAllContact } from "../services/getAllContact";
 
-const ContactList = ({ contactList }) => {
-//   const [contactList, setContact] = useState(null);
-//   const [filterState, setFilterState] = useState(null);
+const ContactList = ({ contactList, handlerClick }) => {
+  //   const [contactList, setContact] = useState(null);
+  //   const [filterState, setFilterState] = useState(null);
 
   //   const [filter, setFilter] = useState(null);
-//   useEffect(() => {
-//     const getDataContact = async () => {
-//       try {
-//         const { data } = await getAllContact();
-      
-//       } catch (error) {
-//         console.log("checked your contactList component");
-//       }
-//     };
-//     getDataContact();
-//   }, []);
+  //   useEffect(() => {
+  //     const getDataContact = async () => {
+  //       try {
+  //         const { data } = await getAllContact();
 
-//   const handlerChenges = ({ target }) => {
-//     setSearchValue(target.value);
-//     if (searchValue !== "") {
-//       const fitredSearch = filterState.filter((itemValue) => {
-//         return Object.values(itemValue)
-//           .join(" ")
-//           .toLowerCase()
-//           .includes(searchValue.toLowerCase());
-//       });
-//       return fitredSearch;
-//     } else {
-//     }
-//   };
+  //       } catch (error) {
+  //         console.log("checked your contactList component");
+  //       }
+  //     };
+  //     getDataContact();
+  //   }, []);
+
+  //   const handlerChenges = ({ target }) => {
+  //     setSearchValue(target.value);
+  //     if (searchValue !== "") {
+  //       const fitredSearch = filterState.filter((itemValue) => {
+  //         return Object.values(itemValue)
+  //           .join(" ")
+  //           .toLowerCase()
+  //           .includes(searchValue.toLowerCase());
+  //       });
+  //       return fitredSearch;
+  //     } else {
+  //     }
+  //   };
 
   const renderList = () => {
     let contacts = <p>empty</p>;
@@ -45,7 +46,10 @@ const ContactList = ({ contactList }) => {
     // });
     contacts = contactList.map((contact) => (
       <div key={contact.id}>
-        <div className="border-b py-2">{contact.name}</div>
+        <NavLink to={`/header/detail-contact/${contact.id}`}>
+          <div className="border-b py-2">{contact.name}</div>
+        </NavLink>
+
         {/* {console.log(contact)} */}
       </div>
     ));

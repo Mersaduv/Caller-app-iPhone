@@ -3,7 +3,7 @@ import Header from "../components/Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className=" max-w-lg mx-auto">
+    <div className=" shadow-md h-screen max-w-md mx-auto">
       <Header />
       {children}
       <Footer />

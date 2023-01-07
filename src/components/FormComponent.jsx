@@ -6,27 +6,39 @@ import { addNewContact } from "../services/addNewContact";
 import { BiUser, BiPlus, BiMinus } from "react-icons/bi";
 import Image from "./../image/contactImg.png";
 import { Navigate, useNavigate } from "react-router-dom";
+import { deleteContact } from "../services/deleteContact";
+import { useEffect } from "react";
 const validationSchema = Yup.object({
   name: Yup.string().min(2).required(), //can you added required message
 });
-const FormComponent = () => {
+const initialValues = {
+  name: "",
+  lastName: "",
+  company: "",
+  phoneNumber: "",
+  email: "",
+  notes: "",
+};
+
+const FormComponent = ({ loadConatct }) => {
   const [showNum, setshowNum] = useState(false);
   const [showEmail, setshowEmail] = useState(false);
   const navigate = useNavigate();
 
+  // if laod page edition show phonenumber/email contact input
+  useEffect(() => {
+    if (loadConatct) {
+      setshowEmail((hidden) => !hidden);
+      setshowNum((hidden) => !hidden);
+    }
+  }, [loadConatct]);
+
   const formik = useFormik({
-    initialValues: {
-      name: "",
-      lastName: "",
-      company: "",
-      phoneNumber: "",
-      email: "",
-      notes: "",
-    },
+    initialValues: loadConatct || initialValues,
     validationSchema,
     validateOnMount: true,
+    enableReinitialize: true,
     onSubmit: async (values) => {
-      console.log(values);
       try {
         await addNewContact(values);
       } catch (error) {
@@ -35,10 +47,19 @@ const FormComponent = () => {
       navigate(-1);
     },
   });
+
+  const deletedHandler = async () => {
+    try {
+      await deleteContact(loadConatct.id);
+      navigate(-2)
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <form
-        className="flex flex-col  z-50 items-center rounded-t-2xl  h-screen  w-full bg-gray-100"
+        className="flex flex-col  h-screen  gap-y-4 z-50 items-center rounded-t-2xl formshad  w-full bg-gray-100"
         onSubmit={formik.handleSubmit}
       >
         {/* header bar  */}
@@ -59,8 +80,8 @@ const FormComponent = () => {
           </button>
         </div>
         <div className="flex items-center mt-3.5 flex-col">
-          <div className="w-1/2 px-3 pt-5 pb-2.5  bg-slate-500 rounded-full">
-            <img src={Image} alt="contact" className="w-full" />
+          <div className="w-1/2 px-3 pt-5 pb-3  bg-slate-500 rounded-full flex items-center justify-center">
+            <img src={Image} alt="contact" className="w-11/12" />
           </div>
           <span className="text-blue-600  cursor-pointer text-sm pt-1 pb-3">
             Add Photo
@@ -76,7 +97,7 @@ const FormComponent = () => {
             formik={formik}
           />
         </div>
-        <div className="bg-gray-100 w-full mt-4    h-96 ">
+        <div className="bg-gray-100 w-full mt-4    ">
           {/* -------------- get  Number mobile -------------*/}
           <div className="bg-white border-t w-full   mt-8  border-gray-100">
             {/* input creating Phone number */}
@@ -115,7 +136,7 @@ const FormComponent = () => {
           </div>
 
           {/* -------------- get  Email  -------------*/}
-          <div className="bg-white border-t w-full  mt-12  border-gray-100">
+          <div className="bg-white border-t w-full  mt-12   border-gray-100">
             {/* input creating Email */}
             <div className="flex items-center w-full border-b">
               {showEmail && (
@@ -151,7 +172,7 @@ const FormComponent = () => {
           </div>
 
           {/*----------- text areaa  ------------------*/}
-          <div className="pl-3 bg-white border-y w-full mt-12">
+          <div className="pl-3 pt-1.5  bg-white border-y w-full mt-12">
             <label htmlFor="notes" className="text-sm pt-1  block">
               Notes
             </label>
@@ -159,16 +180,25 @@ const FormComponent = () => {
               name="notes"
               {...formik.getFieldProps("notes")}
               id="notes"
-              className="w-full  h-24  outline-none"
+              className="w-full  h-24  resize-none outline-none"
             />
           </div>
 
-          <div className="bg-white border-t w-full  mt-12  py-1.5  border-gray-100">
+          <div className="bg-white border-t w-full  mt-12 mb-24    py-1.5  border-gray-100">
             <span className=" ml-4 text-blue-600 cursor-pointer">
-              {" "}
               add field
             </span>
           </div>
+
+          {/* // if laod page edition show delete button */}
+          {loadConatct && (
+            <div
+              onClick={deletedHandler}
+              className="bg-white border-t w-full  cursor-pointer  mt-12   mb-40  py-1.5  border-gray-100"
+            >
+              <span className=" ml-4 text-red-600 ">Delete Contact</span>
+            </div>
+          )}
         </div>
       </form>
     </div>

@@ -9,7 +9,7 @@ input[type="text"],
 input[type="password"],
 select {
   outline: none;
-
+  
   padding: 5px 0px;
 }
 
@@ -19,7 +19,17 @@ input[type="number"] {
 :disabled{
   color: rgb(171, 170, 170);
 }
+.shad,.formshad{
+  box-shadow: rgba(105, 105, 105, 0.236) 0px 50px 100px -20px, rgb(193, 193, 193) 0px -30px 60px -40px;
+}
 
+
+ /* .home-icon circle  {
+  background-color: red;
+  fill: red;
+  stroke: red;
+  stroke-width: 2px;
+ } */
 /*
 input.error {
   border-color: red;
