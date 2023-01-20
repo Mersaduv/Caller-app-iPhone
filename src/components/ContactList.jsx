@@ -1,39 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const ContactList = ({ contactList }) => {
-  //   const [contactList, setContact] = useState(null);
-  //   const [filterState, setFilterState] = useState(null);
-
-  //   const [filter, setFilter] = useState(null);
-  //   useEffect(() => {
-  //     const getDataContact = async () => {
-  //       try {
-  //         const { data } = await getAllContact();
-
-  //       } catch (error) {
-  //         console.log("checked your contactList component");
-  //       }
-  //     };
-  //     getDataContact();
-  //   }, []);
-
-  //   const handlerChenges = ({ target }) => {
-  //     setSearchValue(target.value);
-  //     if (searchValue !== "") {
-  //       const fitredSearch = filterState.filter((itemValue) => {
-  //         return Object.values(itemValue)
-  //           .join(" ")
-  //           .toLowerCase()
-  //           .includes(searchValue.toLowerCase());
-  //       });
-  //       return fitredSearch;
-  //     } else {
-  //     }
-  //   };
-
   const renderList = () => {
-    // console.log(contactList);
-
     let contacts = <p>empty</p>;
 
     if (!contactList) return (contacts = <p>404!</p>);

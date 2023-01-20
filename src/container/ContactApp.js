@@ -90,7 +90,7 @@ const ContactApp = () => {
         )}
       </div>
 
-      <hr className="my-3"></hr>
+      <hr className="mt-3.5 mb-2.5"></hr>
 
       {/* detail your card */}
       <div className="flex items-center">
